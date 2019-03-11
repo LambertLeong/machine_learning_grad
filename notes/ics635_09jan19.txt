@@ -1,0 +1,91 @@
+week 1
+
+th = theta
+eta = learning rate
+
+RECIPE for supervised learning
+1. Labeled data
+2. Choose model class
+3. Model fitting/learning/training
+4. Evaluation
+
+1. DATA:
+D = {(xn,yn)}N
+names for x ^ covariates, features
+names for y ^ targets, independent variables, 
+x, y are all numerical values
+  - text, images other data is often transformed into
+
+spam email ex
+  - use bag of words to get numeric vector for occurence of words
+  - targets are 0 or 1
+
+2. Model
+f(x,th) = wx+b
+  - vectors - w, th, x,
+  - w - weights
+  - b - bias
+  - usuall bias is written into the vectos of weights and x
+    - w = [w0; ... b] and x = [x0; ...1]
+  - f(x,th) = wx=y^  w is a transpose vector, and y^ is y hat
+
+Empirical risk minimization
+cost = loss = func(th)=E[L(yn,f(xn;th))], empirical risk minimization
+funciton of a single prediction and target, E is expectation
+expectation over all of the data set
+
+Ep[x]=Sigp(xi)xi - wighted sum of all possible values x can take, average
+  - continous valse are an intigral
+***^ kevin murphys math section ^ from book 
+
+Regression ?
+Loss L(y,y^)=(y-y^)**2 like mse -- L2 loss
+  - cL(th) = 1/N SIG(yn-f(xn;th))**2
+  - parabola if ploted
+L1(y,y^) = |y-y^|
+  - more robust to outliers
+    - wont push the model or fit line towards the outlier
+
+Classification
+y^ = w**tx - real val
+L01 = II(II(y^>0)!=y)
+  - not smooth, difficult to fit the model
+  - hinge loss L(y,y^)= if y=0 its the max of 0 and y^, if y=1 its the max of 0
+    and -y^
+-    - surrogate loss func
+
+Convexity - optimization of loss function
+  - one minimum
+  - all local mins are global min
+
+Gradient decent
+  - start at random point
+  - determing which way is "down"
+  - step toward the "down"
+
+   cL(th) = 1/N SIG(yn-f(xn;th))**2
+= 1/N sig(yn-w**txn)**2  
+
+th0 (random)
+th t+1 = th t - 
+
+* in practice gradient is rarely 0
+
+stocastic gradient decent
+
+  - parabola if ploted
+upsidedown delta cap cursive l (th) - gradient of cost | th=th* where th*=0
+
+Evaluation
+divide dataset into train, validate, test
+  - train 60% - fit parameters of model
+  - validation 20% - choes which model
+    - hyperparameters - any parameter isnt fit in training, eg. ada - learning rate
+  - test 20% - final evaluation
+
+K-fold cross validation
+  - break data up into k  different subsets
+  - split sub set into train and test 
+  - repeat k times
+  * good for small data sets
+  * leave one out

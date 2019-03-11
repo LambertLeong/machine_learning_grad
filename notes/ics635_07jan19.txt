@@ -1,0 +1,80 @@
+Week 1
+
+polyneas paradox - humans can do alot but not really explain it all
+
+types of ML
+- supervised
+- unsupervised
+- reinfocement
+	- any thing that plays a game falls in this class
+
+Alt description
+	|	teacher		|	no teacher
+----------------------------------------------------------------
+active	|Reinforcment Learning	|curiosity
+	|active learning	|intrinsic motivation
+	|bandits		|
+	|bayesian optimization 	|
+-----------------------------------------------------------------
+passive	|Supervised		|Unsupervised
+	|regression		|clustering/visualization
+	|classification		|dimensionality reduction (PCA)
+	|ranking		|representation learning
+	|structured pred	|compression 
+	|			|density estimation 
+	|			|	- (pmf)-descret (pdf)-continuous
+	|			|selfsuperviesd learning
+
+bayesian optimization 
+- how much you should explore vs exploit
+	- undefined functions and can get stuck in local min/max
+
+Regression
+
+training data
+Dataset= {(xn, yn)}N
+*most vectors in papers are in bold, x and y above are vectors
+
+model - computes some fucntion of x
+	- goal: predict y given x
+	- f(x;theta)
+
+Linear Regression 
+theta = <w1,b>
+f(x; theta) = w1x+b
+
+lines are good but lets extend to higher order polynomials
+
+phi(x) = <x, x**2, x**3>
+f(x; theta)= b+w1x+w2x**2+w3x**3
+
+might want to accept some loss on your training data set if your model can
+generalize to new data better
+- overfitting issue
+- best model is where test error is minimum
+
+* NEVER use test set to choosing model parameters
+	- dont validate with test set
+
+Higher dimensions, ^ 1 dimension
+
+f(x1,x2;theta) = b+w1x1+w2x2
+	if x1=0
+		f(0,x2)+w2x2
+
+Classification
+
+f(x; theta) = II(b+w1x1+w2x2 > 0)
+II=indicator function 
+
+Ranking
+
+each ...
+
+
+RECIPE for supervised learning
+1. Labeled data
+2. Choose model class
+3. Model fitting/learning/training
+4. Evaluation
+

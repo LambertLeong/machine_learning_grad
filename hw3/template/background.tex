@@ -1,0 +1,93 @@
+\section{Throughchip Interface (TCI)}
+\label{sec:background}
+
+% Introduce TCI
+Through chip interface (TCI) is a wireless technology that allows for inter-chip
+communication via inductive coupling.  TCI has many advantages over traditional,
+wired, communication technologies in that it prefabrication of chips is not
+required.  Wire bonding and throuch scilicon via (TSV) communication
+technologies require the running of wires through the chip, which affects the the
+processing unit and eliminates the possibility of having a transiter in that
+location.  Inductors sit on top of chips and TCI does not disrupt or require
+modifications to existting chips. An example of TCI is shown in
+Figure~\ref{fig:tci}.
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[width=70mm]{TCI.jpg}
+	\caption{Connecting partially overlapping chips using inductors.
+(Courtesy of Prof. Michihiro Koibuchi, National Informatics Institute, Japan.)}
+        \label{fig:tci}
+\end{figure}
+
+ Inductive-coupling offers high speed (e.g., 8
+Tbps~\cite{MiuraISSCC2010}), low power (e.g., 0.14 pJ/b~\cite{MiuraISSCC2007})
+due in part to the removal of electrostatic discharge (ESD) protection devices,
+high integration (e.g., a 128-die NAND stack~\cite{KurodaISSCC2010}), and
+applicability to an increasing range of computing systems including a
+reconfigurable processor~\cite{MiraMICRO2013}.  All the features afforded by TCI
+allows for the exploration of the vast chip layout design space.
+
+%    crosstalk
+While TCI is a favorable communication technology for constructing multi-chip
+layouts, it presents a unique design challenge.  Interference, known as
+crosstalk can occur if wireless communication regions are too close to one
+another. Crosstalk occurs between vertical links that are physically located
+directly above or below each other.  Interference as a result of crosstalk
+negatively impacts inter-chip communication, which in turns can dramatically
+reduce application performance.  Crosstalk can be avoided altogether by doubling
+the footprint of the induction area~\cite{Kuroda2007,ISSCC2009}.  Constructing 3-D layouts with the constraint that no two
+vertical links can be placed directly above each other. 
+
+% previous layout configureation
+The checkerboard layout can utilizes TCI for communication as shown below in
+Figure~\ref{fig:init_checkerboard}.  To avoid crosstalk, the checkerboard is
+limited to only two levels of chip stacking.  A checkerboard layout geometry is
+easy to conceptualize and it scales with growing number of chips.  Thusly, the checkerboard layout will serve as our control and we will compare our GA generated layouts to it.
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[width=60mm]{hv-layout.eps}
+        \caption{Checkerboard layout. (Courtesy of Prof. Michihiro
+Koibuchi, National Informatics Institute, Japan.)}
+        \label{fig:init_checkerboard}
+\end{figure}
+
+% prevous work showed similarity towards checerboard
+%   is this the best network? 
+
+\iffalse
+3D multi-chip stacking of microprocessor chips is an idea that is motivated by
+the 3D stacking of DRAM.  Stacking of DRAM has lead to high bandwidth
+performance benefits.  Previous work in 3D stacking of microprocessor chips has
+explored two primary layout geometries which includes the stack and checkerboard
+layout.  The stack layout consists of chips stacked vertically on top of each
+other while the checkerboard layout consists of chips that only overlap each
+other at the corners so that when viewed from above it resembles a
+checkerboard.  The checkerboard layout is a more advantageous layout geometry in
+comparison to the stack due to it's ability to dissipate heat which is afforded
+by its sparser configuration.  The checkerboard layout also scales.
+
+In my previous work we employed heuristics to try and build integrated 3D
+multi-chip systems that beat the checkerboard with respect to better network
+topology and higher chip powers given a particular number of chips and
+temperature constraint.  During this work, we were severely limited in the types
+of heuristic we could use due a massive simulation bottleneck.  Heat evaluations
+of the layout during construction needed to be performed empirically by the
+Hotspot v6.0 simulator which has a lengthy runtime.  In this previous, we
+implemented a (1, $\lambda$)-evolutionary strategy (ES), despite the Hotspot
+bottleneck
+and produced good layouts~\cite{MiuraISSCC2010}.
+%\iffalse
+Designing the best integrated 3D multi-chip system which optimizes temperature,
+chip frequencies, and inter-chip network topology is an NP-hard multi-objective
+optimization problem.  The use of heuristics to solves this problem is
+necessary to arrive at good layout geometries in a tractable amount of time.
+The Hotspot v6.0 heat simulator was used in previous work to accurately measure
+the operating temperature of the integrated 3D multi-chip system however, it is
+a computationally expensive and a lengthy process.  Thusly, Hotspot's lengthy
+runtime
+limited the heuristics we were able to employ for exploring different layout
+geometries.
+\fi
+

@@ -1,0 +1,45 @@
+ICS 635 week 2
+
+Classifing decission boudaries are complicated and non-linear
+
+K-nearest Neighbors classification algorithm
+- pick a point
+  - calculate the distance of training points to that picked point
+  - classifiy by distance
+    - may end up with a circular dissision boundary
+  - cant use it all the time because if there are noise or outliers you will get
+    pockets around outliers
+
+tie breaking for two neighbors - choose the closest one
+how do we choose k???
+  - for any problem there is an optimal k
+  - when k = num of training points, accuracy is lost
+  - k is a hyper parameter that can be controlled and help with over fitting
+* smoother decission bountaries usually generalize better
+  - in higher dimension, everything looks far apart and KNN can fall appart
+
+prob density distribution
+  - bayes error rate - overlap of the two distribution classes
+    - cant classify either or
+
+parameteric model - requires training
+Non - parametric models - no training, calcualtions are done all at once.  KNN
+are an example of this.
+
+Scaling in any dimension can help with knn fitting
+  - will help with the dessision boundary surface
+  - when do we do it??
+    - standardizing the data, preprocessing
+	  - start with matrix X which is NxD -> Xnd=(Xnd-mud)/sqrt(var(xd))
+	mu = mean
+	    - comute mud=E[xd] = 1/NSIGxnd -  compute expectation of each variable
+	    - var(xd) = E[(xd-mud)**2]
+    - sphereing data - de-correlating data
+        - ZCA whitening***
+
+euclidiean distance Deu(x,y) = sqrt(x-y)**2)
+mahalanobis - Dm(x,y) = sqrt((x-y)**tsig-1(x-y)) = sqrt((x-y)**t(sig1/2)**tsig1/2(x-y)) ---
+sqrt(sig1/2x-sig-1/2y)**2)
+ - where sig = covariance matrix [E[(x1-mu1)(x1-mu1)...;;;E[(xd-mud)(x1-mu1)]]]
+   - always symmetric
+in sci-kit learn,

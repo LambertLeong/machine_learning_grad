@@ -1,0 +1,68 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlength{\textwidth}{6.5in}     
+\setlength{\oddsidemargin}{0in}  
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.5in} 
+\setlength{\topmargin}{0in}   
+\setlength{\headheight}{14pt} 
+\setlength{\headsep}{10pt}   
+%\setlength{\footskip}{0in}
+
+%------------------------------------------------
+\newcommand{\homework}[2]{
+\setcounter{section}{#1}
+\section*{ICS635 Homework {\thesection}: {#2} }
+{\markboth{#2}{#2}}
+}
+%------------------------------------------------
+
+
+\begin{document}
+
+% Enter the Homework number and title as arguments to
+% homework
+%\homework{3}{by Lambert Leong}
+\title{ICS635 Homework 3}
+\author{Lambert Leong}
+\maketitle
+\section{Introduction}
+% looked at visualization kernels
+% Noticed that each variable was not really seperable
+% Wondered if PCA could reduce dimensionality
+%  - turns out it didnt really work...
+% Gradient boosting to start
+
+% Noticed the data description said that amount is irrelavant
+% thought maybe we could view the data as sequence data
+%  - extract patterns in transaction histories
+% assumes its a time series and assumed there was a particular order
+% 1D CNN and LSTM
+
+% feature engineering
+% count pos and neg
+% mean, std, skew, kurtosis
+% longest pos and neg seq
+\section{Methods}
+%PCA
+% - centered data
+
+% XGBoost
+% - on pca and non pca data sets
+
+% 1D CNN
+
+% LSTM
+
+% XGBoost with new feat
+% - parameters tuning
+\section{Results}
+
+\section{Conclusion}
+\end{document}

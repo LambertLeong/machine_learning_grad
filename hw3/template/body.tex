@@ -1,0 +1,113 @@
+\iffalse
+Designing the best integrated 3D multi-chip system which optimizes temperature,
+chip frequencies, and inter-chip network topology is an NP-hard multi-objective
+optimization problem.  The use of heuristics to solves this problem is
+necessary to arrive at good layout geometries in a tractable amount of time.
+The Hotspot v6.0 heat simulator was used in previous work to accurately measure
+the operating temperature of the integrated 3D multi-chip system however, it is
+a computationally expensive and a lengthy process.  Thusly, Hotspot's lengthy runtime
+limited the heuristics we were able to employ for exploring different layout
+geometries.  
+\fi
+
+\section{Approach}
+
+A trade-off exists between temperature and chip power and also between
+temperature and the inter-chip network topology.  By transitivity there is also
+a trade off between chip power and inter-chip network topology.  When designing
+the best layouts for integrated 3D multi-chip systems we deal with these
+trade-offs in that we strive to achieve a layout that yields a system with a
+high operating chip power and frequency and good inter-chip network topology that
+can operate under a given temperature constraint.  This is a constrained
+multi-objective optimization problem which is NP-hard.  In this project I employ
+the use of evolutionary computational techniques, in the form of a genetic
+algorithm, to explore the vast layout design space and generate the best
+layouts for a given layout size.
+
+\subsection{Acceleration of Heat Objective Function}
+Implementations of a genetic algorithm would require multiple calls to the slow
+Hotspot simulator for an individuals fitness evaluations via some objective
+function. Thusly, given the current slow state of our heat evaluator, it would
+be difficult to implement a genetic heuristic that generates good quality
+layouts in a tractable amount of time.  An approach, which we are proposing in
+this work, would be to develop a method of deriving a fast approximation of the growing
+layout temperature.  My previous work has resulted in a sizable sample set of
+layout configurations and corresponding temperature values.  With this sample
+set we attempt to train a machine learning regression to learn the relationship
+between the layout configuration and output temperature.  This trained
+regression will help to return fast temperature approximations when given a
+particular layout configurations.  As a result we will be able to implement a
+genetic algorithm which will not be bottlenecked by slow temperature
+evaluations.  The Hotspot simulator, while slow, is extremely accurate and thus
+we plan to call it for a final temperature evaluation the the final layout
+generated via a genetic algorithm.  
+
+\subsection{Dimensionality Reduction}
+As mentioned previously, a trade-off exists between the layout temperature and
+the tightness of the network and tighter networks correlate to higher
+temperatures.  Another possible way of characterizing a tight network is layout density.
+Denser 3D layouts, like tight network topologies, correlate to higher potential
+layout temperatures.  It may be possible to derive a simpler heat approximation
+that leverages the, supposed, trade-off relationship between temperature and
+layout density.  In addition, a relationship does exists between density, power, and
+temperature and thus power needs to be factored into this simpler heat
+approximation method. As a result, we can determine a simple heat approximation
+by calculating density first and multiplying it by the chip power.  We deem
+the result of the product between density and power the ``heat score" which is
+now a single objective measurement which represents two data dimensions, density
+and power.  
+
+\section{Target Results}
+
+Results from my previous work showed that our random greedy heuristic which used
+a (1, $\lambda$)-ES generated layout configurations that were better than the
+checkerboard layout.  However, the network characteristics for both the
+checkerboard and our (1, $\lambda$)-ES heuristic converged to be identical as
+the layout size or number of chips within the layout increased.  In these
+instances, where a tie in network characteristics exists, our heuristic layouts
+were deemed superior by virtue of the computational power of the system layout.
+Heuristic generated layout were able to run at a higher chip power even though
+the network characteristics were identical.   
+
+Ideal results would include layouts that beat the checkerboard layout with
+respect to all the objective (network, power, and temperature) for any size
+layout. We hope to achieve these ideal results with the implementation of a
+genetic algorithm.  Successful implementation and execution of a genetic
+algorithm for layout generation will be measured according to the three
+objectives.  Additionally, we will evaluate the genetic algorithms approach
+against checkerboard construction and our previous (1, $\lambda$)-ES via direct
+comparison of the resulting layout characteristics. Our target results would
+demonstrate the genetic algorithms ability to generate layouts that can operate
+at higher chip powers than the checkerboard, just as the (1, $\lambda$)-ES
+generated layouts, as well as a better inter-chip network topology unlike our
+previous heuristic that could only match it.    
+
+\subsection{Challenges}
+
+Chip positions are represented, in simulation, as a 3D graph point of the bottom
+left most edge of the chip and these points are stored in an array.  In reality,
+these graph points represent a physical chip the occupy space which physically
+constrains placement of chips, as to avoid collisions. This physical constraint
+may make the implementation of a variation operator such as cross-over difficult.
+A simple cross-over would involve splitting one layout and recombining it with
+another part of a layout.  While this seems simple in theory, the physical
+constraints of dealing with actual hardware chips and still attempting to
+maintain connectivity between chips is difficult in practice.   
+
+\section{Resources}
+
+* \emph{The following references pertain to the background and previous work regarding
+integrated 3D multi-chip systems.  Evolutionary resources, aside from the textbook and resources provided by Professor Altenberg, are being gathered.}
+
+\nocite{*}
+\bibliography{biblio}
+%% Use this for an alphabetically organized bibliography
+\bibliographystyle{plain}
+
+
+
+%have to go the angle of fast approximations for the heat evals because heat
+%needs to be evaluated when levels are changed, therefore hotspot called
+
+
+
