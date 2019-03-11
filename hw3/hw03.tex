@@ -33,11 +33,23 @@
 \author{Lambert Leong}
 \maketitle
 \section{Introduction}
+I chose to participate in the Santander Customer Transaction competition.  A
+quick survey of the raw training data revealed that there are 200 fields which
+contain positive or negative float values.  My initial thought was to perform a
+principal components analysis (PCA) to try and reduce the dimensionality of the
+data.  Several visualization kernerls showed that the distribution for each
+class with respect to each field, i.e. `var\_0', `var\_1',etc..., is not very
+different.  In fact, there is a significant overlap of the two classes for
+almost all fields and determining a decision boundary appears to be non-trivial.
+This lead me to believe that mapping the data into a new space with PCA would
+not be useful for the purposes of reducing data dimensionality.
+
 % looked at visualization kernels
 % Noticed that each variable was not really seperable
 % Wondered if PCA could reduce dimensionality
 %  - turns out it didnt really work...
 % Gradient boosting to start
+
 
 % Noticed the data description said that amount is irrelavant
 % thought maybe we could view the data as sequence data
