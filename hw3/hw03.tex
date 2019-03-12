@@ -1,10 +1,35 @@
 \documentclass[11pt,letterpaper]{article}
 
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{paralist}
+%\usepackage{amsmath}
+\usepackage{bm}
+%\usepackage{subfigure}
+\usepackage{cite}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{umoline}
+\usepackage{xspace}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{url}
+
+\usepackage{paralist}
+
+%\usepackage{gensymb}
+%\usepackage[euler]{textgreek}
+%\usepackage{array}
+%\usepackage{tabu}
+%\usepackage{tabularx}
+\usepackage{subcaption}
+%\usepackage{amsmath}
+%\usepackage{cleveref}
+
 
 \setlength{\textwidth}{6.5in}     
 \setlength{\oddsidemargin}{0in}  
@@ -59,6 +84,7 @@ transformed data, with less than 200 features, indicated that I should not
 proceeds with PCA and models generated with all 200 features were able to
 generalize to the validation set better.
 
+\iffalse
 % Noticed the data description said that amount is irrelavant
 % thought maybe we could view the data as sequence data
 %  - extract patterns in transaction histories
@@ -73,6 +99,7 @@ architectures which include long short term memory (LSTM) recurrent neural
 network and a 1D convolutional neural network (CNN).  The motivation behind
 implementing these neural networks was to try to explore patterns in the
 sequence of transacitons that may correlate to a particular class.
+\fi
 
 % feature engineering
 % count pos and neg
@@ -94,23 +121,97 @@ mention models, gradiant boosting, LSTM, and 1D CNN, to the new dataset with new
 features to see if it would lead to better classification. 
 
 \section{Methods}
+The first thing that was done was to split the training data into a training and
+validation set.  The Scikit-learn train\_test\_split function was used to split
+the training data.  A random\_state of 18 was used and the test size was 0.2
+which resulted in 80\% of the original training data to be used for training and
+the remaining 20\% to be used for validation.  
+
 \subsection{PCA}
 %PCA
 % - centered data
-
+PCA was performed using Scikit-lean's decomposition module.  PCA was performed
+on centered and non-centered data which yeilded similar results.  I sought to
+reduce the number of features by keeping those which explain 95\% of the
+variance.  It turns out that 118 features explain about 95\% of the total
+variance which is more features than what was initially expected.  The top 118
+features were kept and used to train a gradient boosting model.
+ 
 \subsection{Gradient Boosting}
 % XGBoost
 % - on pca and non pca data sets
-
-\subsection{Neural Networks}
-% 1D CNN
-
-% LSTM
+The sklearn xgboost module was used to create the gradient boosting model. The
+model was trained and evaluated on the original training data, with all 200
+features, as well as with the PCA reduced data with 118 features.  Area under
+reciever operation characteristic (AUROC) was used to evaluate how well the
+model was at generalizing to the validation test set.  The non-reduced data, the
+original data yeilded higher AUROC values, at around 0.885, when compared to the
+models trained on PCA transformed data.  Different numbers of features were
+experiemented with for PCA but the full dataset still yield the best results.
 
 \subsection{Feature Engineering}
 % XGBoost with new feat
 % - parameters tuning
+Functions were written to itterate through each row or record and count the
+number of positive values and the number of negative values.  These two numbers
+were appended to the end of the dataset as two extra features.  Another function
+was written to capture the longest sequence, within each row, of positive
+numbers and negative numbers.  These features were engineered under the
+hypothesis that this could be sequence data and under the assumption that the
+order of the features have not been randomized. 
+
+\subsection{Parameter Tuning}
+Model parameters, which include n\_estimators, max\_depth, and the learning rate
+were choosen with the help of the GridSearchCV.  GridSearchCV exhaustively
+searches through a range of choosen values for each of the model parameters and
+helps you choose the best parameter values.  Parameters and their final values
+are as follows: n\_estimators = 1500, max\_depth = 3, and the learning rate =
+0.3. The tree\_method was gpu\_hist and predictor was gpu\_predictor; these
+parameters were not tunned and choosen so that GPU acceleration could be
+enabled.   
+
+\iffalse
+\subsection{Neural Networks}
+% 1D CNN
+
+% LSTM
+\fi
+
 \section{Results}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[]{.4\textwidth}
+        \includegraphics[width=\textwidth]{pos_dist.png}
+        \caption{Distribution of postitive numbers by class}
+        \label{fig:pos_dist}
+    \end{subfigure}
+    \begin{subfigure}[]{.4\textwidth}
+        \includegraphics[width=\textwidth]{neg_dist.png}
+        \caption{Distribution of negative numbers by class}
+        \label{fig:neg_dist}
+    \end{subfigure}
+    \caption{Frequency distributions for postive and negative values colored by
+class}
+    \label{fig:count_dist}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[]{.4\textwidth}
+        \includegraphics[width=\textwidth]{long_pos_dist.png}
+        \caption{Distribution of postitive numbers by class}
+        \label{fig:pos_dist}
+    \end{subfigure}
+    \begin{subfigure}[]{.4\textwidth}
+        \includegraphics[width=\textwidth]{long_neg_dist.png}
+        \caption{Distribution of negative numbers by class}
+        \label{fig:neg_dist}
+    \end{subfigure}
+    \caption{Frequency distributions for postive and negative values colored by
+class}
+    \label{fig:count_dist}
+\end{figure}
 
 \section{Conclusion}
 \end{document}
