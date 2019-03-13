@@ -208,10 +208,21 @@ class}
         \caption{Distribution of negative numbers by class}
         \label{fig:neg_dist}
     \end{subfigure}
-    \caption{Frequency distributions for postive and negative values colored by
-class}
+    \caption{Frequency distributions for longest postive sequence and longest
+negative sequence values colored by class}
     \label{fig:count_dist}
 \end{figure}
+
+\begin{table}[h!]
+\begin{tabular}{|c|c|}
+\hline
+Model & Best Public Score \\ \hline
+1D CNN & 0.833 \\ \hline
+LSTM & 0.829 \\ \hline
+PCA XGBoost & 0.882 \\ \hline
+XGBoost & 0.899 \\ \hline
+\end{tabular}
+\end{table}
 
 \section{Conclusion}
 \end{document}

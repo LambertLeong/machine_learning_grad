@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  11 MAR 2019 22:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  13 MAR 2019 11:38
 entering extended mode
 **./hw03.tex
 (hw03.tex
@@ -677,10 +677,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14938 strings out of 495222
- 289564 string characters out of 3181559
- 321902 words of memory out of 3000000
- 17928 multiletter control sequences out of 15000+200000
+ 14939 strings out of 495222
+ 289581 string characters out of 3181559
+ 322902 words of memory out of 3000000
+ 17929 multiletter control sequences out of 15000+200000
  14740 words of font info for 54 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  62i,8n,94p,437b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -689,7 +689,7 @@ fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.p
 fb>
-Output written on hw03.pdf (3 pages, 331231 bytes).
+Output written on hw03.pdf (3 pages, 332387 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
