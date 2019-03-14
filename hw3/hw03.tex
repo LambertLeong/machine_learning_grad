@@ -214,7 +214,7 @@ number of principal components affects the AUROC score.
 \hline
 Parameter & Value \\ \hline\hline
 n\_estimators & 1000 \\ \hline
-tree\_method & gpu\_exact \\ \hline
+tree\_method & gpu\_hist \\ \hline
 predictor & gpu\_predictor \\ \hline
 max\_depth & 3 \\ \hline
 eval\_metric & auc \\ \hline
@@ -262,6 +262,12 @@ Figures~\ref{fig:pos_dist} and~\ref{fig:neg_dist} display more difference and
 less overlap than any of the 200 original features.  Due to this fact, I
 hypothesised that adding these features to the model may help with training. 
 
+Distributions of the longest positive and negative sequences with respect to
+each class are shown in Figure~\ref{fig:count_dist}.  These two features were
+constructed under the assumption that the features corrispond to some type of
+sequence data.  Again, I was trying to find features which show more speration
+between the two classes.
+
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[]{.4\textwidth}
@@ -279,13 +285,40 @@ negative sequence values colored by class}
     \label{fig:count_dist}
 \end{figure}
 
+The resulting distributions for the longest positive and negative squences are
+different which is unlike the total count of positive and negative numbers.
+There are slight differences with resepct to each class which may help to
+increase the models AUROC on the validation set.  Using this new feature may
+come with some risk because it is likely that the feature order may have been
+randomized before the datasets were released.  If that was the case, the
+longest positive and negative sequences will be different and possibly
+irrelavant.
+
+\begin{table}[h!]
+\centering
+\caption{XGBoost final parameters}
+\resizebox{.3\textwidth}{!}{
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value \\ \hline\hline
+n\_estimators & 3500 \\ \hline
+tree\_method & gpu\_exact \\ \hline
+predictor & gpu\_predictor \\ \hline
+max\_depth & 2 \\ \hline
+eval\_metric & auc \\ \hline
+\end{tabular}
+}
+\label{tab:xgb_params}
+\end{table}
+
+
 \begin{table}[h!]
 \centering
 \caption{Final public results}
 \resizebox{.3\textwidth}{!}{
 \begin{tabular}{|c|c|}
 \hline
-Model & Best Public Score \\ \hline
+Model & Best Public Score \\ \hline \hline
 1D CNN & 0.833 \\ \hline
 LSTM & 0.829 \\ \hline
 PCA XGBoost & 0.882 \\ \hline
