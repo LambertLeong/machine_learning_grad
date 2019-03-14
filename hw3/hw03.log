@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  13 MAR 2019 11:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  13 MAR 2019 23:08
 entering extended mode
 **./hw03.tex
 (hw03.tex
@@ -539,9 +539,6 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 )
 (hw03.aux
 
-LaTeX Warning: Label `fig:count_dist' multiply defined.
-
-
 LaTeX Warning: Label `fig:pos_dist' multiply defined.
 
 
@@ -649,67 +646,65 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <pca_explain.png, id=12, 829.0975pt x 550.055pt>
 File: pca_explain.png Graphic file (type png)
 <use pca_explain.png>
-Package pdftex.def Info: pca_explain.png  used on input line 186.
+Package pdftex.def Info: pca_explain.png  used on input line 195.
 (pdftex.def)             Requested size: 234.87749pt x 155.81888pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<pos_dist.png, id=13, 784.9325pt x 521.95pt>
+[2]
+<pca_auc.png, id=16, 833.1125pt x 540.0175pt>
+File: pca_auc.png Graphic file (type png)
+<use pca_auc.png>
+Package pdftex.def Info: pca_auc.png  used on input line 228.
+(pdftex.def)             Requested size: 234.87749pt x 152.2421pt.
+ [3 <./pca_explain.png> <./pca_auc.png>]
+<pos_dist.png, id=20, 784.9325pt x 521.95pt>
 File: pos_dist.png Graphic file (type png)
 <use pos_dist.png>
-Package pdftex.def Info: pos_dist.png  used on input line 197.
+Package pdftex.def Info: pos_dist.png  used on input line 244.
 (pdftex.def)             Requested size: 187.89912pt x 124.94402pt.
-<neg_dist.png, id=14, 764.8575pt x 515.9275pt>
+<neg_dist.png, id=21, 764.8575pt x 515.9275pt>
 File: neg_dist.png Graphic file (type png)
 <use neg_dist.png>
-Package pdftex.def Info: neg_dist.png  used on input line 202.
+Package pdftex.def Info: neg_dist.png  used on input line 249.
 (pdftex.def)             Requested size: 187.89912pt x 126.74579pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<long_pos_dist.png, id=15, 754.82pt x 527.9725pt>
+<long_pos_dist.png, id=22, 754.82pt x 527.9725pt>
 File: long_pos_dist.png Graphic file (type png)
 <use long_pos_dist.png>
-Package pdftex.def Info: long_pos_dist.png  used on input line 216.
+Package pdftex.def Info: long_pos_dist.png  used on input line 268.
 (pdftex.def)             Requested size: 187.89912pt x 131.42886pt.
-<long_neg_dist.png, id=16, 740.7675pt x 533.995pt>
+<long_neg_dist.png, id=23, 740.7675pt x 533.995pt>
 File: long_neg_dist.png Graphic file (type png)
 <use long_neg_dist.png>
-Package pdftex.def Info: long_neg_dist.png  used on input line 221.
+Package pdftex.def Info: long_neg_dist.png  used on input line 273.
 (pdftex.def)             Requested size: 187.89912pt x 135.44582pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2]
-
-LaTeX Warning: Text page 3 contains only floats.
-
-[3 <./pca_explain.png> <./pos_dist.png> <./neg_dist.png> <./long_pos_dist.png> 
-<./long_neg_dist.png>] [4] (hw03.aux)
+[4 <./pos_dist.png> <./neg_dist.png> <./long_pos_dist.png> <./long_neg_dist.png
+>] [5] (hw03.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14945 strings out of 495222
- 289692 string characters out of 3181559
- 323910 words of memory out of 3000000
- 17934 multiletter control sequences out of 15000+200000
+ 14954 strings out of 495222
+ 289812 string characters out of 3181559
+ 321934 words of memory out of 3000000
+ 17942 multiletter control sequences out of 15000+200000
  14740 words of font info for 54 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 62i,8n,94p,437b,544s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,10n,94p,437b,544s stack positions out of 5000i,500n,10000p,200000b,50000s
 </home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.p
 fb>
-Output written on hw03.pdf (4 pages, 375076 bytes).
+Output written on hw03.pdf (5 pages, 421431 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

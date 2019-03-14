@@ -179,17 +179,64 @@ enabled.
 
 \section{Results}
 
-asfaa
+Due to the fact that not much was known about the data and the 200 features, I
+thought we may be able to reduce the dimensionality and build models using fewer
+features.  Various visualization kernels on kaggle showed great similarities
+between the two classes with respect to a particular feature.  No one feature
+seems to show any significant amount of seperability between the two classes
+however, it appeared that some features were slightly more sperable than others.
+Figure~\ref{fig:pca_explain} shows the relationship between the number of
+principal components and the variance explained by those number of components.
+I had hoped that the majority of the variance, about 95\%, was explained by a
+few components.
 
 \begin{figure}[h!]
     \centering
         \includegraphics[width=.5\textwidth]{pca_explain.png}
         \caption{Number of principal components and the explained variance}
         \label{fig:pca_explain}
-    \label{fig:count_dist}
 \end{figure}
 
-asdfaefa
+I experimentally determined if it was worth proceeding with PCA.  Using the
+XGBoost gradiant boosting module I defined a set of consistant parameters for
+comparision which are shown in Table~\ref{tab:xgb_params}.  I trained the model
+using the training data, 80\% of the full training dataset, and varied the
+amount of components used during training. Predictions were made on the
+validation set, 20\% of the original training dataset, and the AUROC were
+calculated.  Figure~\ref{fig:pca_auc} shows how varrying the
+number of principal components affects the AUROC score. 
+
+\begin{table}[h!]
+\centering
+\caption{XGBoost parameters}
+\resizebox{.3\textwidth}{!}{
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value \\ \hline\hline
+n\_estimators & 1000 \\ \hline
+tree\_method & gpu\_exact \\ \hline
+predictor & gpu\_predictor \\ \hline
+max\_depth & 3 \\ \hline
+eval\_metric & auc \\ \hline
+\end{tabular}
+}
+\label{tab:xgb_params}
+\end{table}
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[width=.5\textwidth]{pca_auc.png}
+        \caption{AUROC scores have a postive correlation to the number of
+principal components}
+        \label{fig:pca_auc}
+\end{figure}
+
+The results in Figure~\ref{fig:pca_auc} led me away from PCA.  Using all the components
+with XGBoost resulted in a fairly good AUROC at 0.887.  I decided to stick with the
+XGBoost classifier and proceed with feature engineering.  As mentioned in the
+previous section, I constructed two extra features.  Frequency distributions for
+each of the features are plotted in the following figures.  They are colored by
+class.
 
 \begin{figure}[h!]
     \centering
@@ -208,7 +255,12 @@ class}
     \label{fig:count_dist}
 \end{figure}
 
-asfea
+Figure~\ref{fig:count_dist} indicates that there are some noticible differences
+between class 0 and class 1 when looking at the total number of positive feature
+values and the total number of negative feature values. The seperation seen in
+Figures~\ref{fig:pos_dist} and~\ref{fig:neg_dist} display more difference and
+less overlap than any of the 200 original features.  Due to this fact, I
+hypothesised that adding these features to the model may help with training. 
 
 \begin{figure}[h!]
     \centering
@@ -227,9 +279,10 @@ negative sequence values colored by class}
     \label{fig:count_dist}
 \end{figure}
 
-asdfafa
-
 \begin{table}[h!]
+\centering
+\caption{Final public results}
+\resizebox{.3\textwidth}{!}{
 \begin{tabular}{|c|c|}
 \hline
 Model & Best Public Score \\ \hline
@@ -238,6 +291,8 @@ LSTM & 0.829 \\ \hline
 PCA XGBoost & 0.882 \\ \hline
 XGBoost & 0.899 \\ \hline
 \end{tabular}
+}
+\label{tab:final}
 \end{table}
 
 \section{Conclusion}
