@@ -175,7 +175,7 @@ Model parameters, which include n\_estimators, max\_depth, and the learning rate
 were chosen with the help of the GridSearchCV.  GridSearchCV exhaustively
 searches through a range of chosen values for each of the model parameters and
 helps you choose the best parameter values.  Parameters and their final values
-are as follows: n\_estimators = 1500, max\_depth = 3, and the learning rate =
+are as follows: n\_estimators = 1000, max\_depth = 3, and the learning rate =
 0.3. The tree\_method was gpu\_hist and predictor was gpu\_predictor; these
 parameters were not tunned and chosen so that GPU acceleration could be
 enabled.   
@@ -227,6 +227,7 @@ n\_estimators & 1000 \\ \hline
 tree\_method & gpu\_hist \\ \hline
 predictor & gpu\_predictor \\ \hline
 max\_depth & 3 \\ \hline
+learning rate& 0.3 \\ \hline
 eval\_metric & auc \\ \hline
 \end{tabular}
 }
