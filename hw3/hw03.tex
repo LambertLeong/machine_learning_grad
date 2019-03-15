@@ -63,10 +63,10 @@ I chose to participate in the Santander Customer Transaction competition.  A
 quick survey of the raw training data revealed that there are 200 features which
 contain positive or negative float values.  My initial thought was to perform a
 principal components analysis (PCA) to try and reduce the dimensionality of the
-data.  Several visualization kernerls showed that the distribution for each
-class with respect to each feature, i.e. `var\_0', `var\_1',etc...,  gaussian
+data.  Several visualization kernels showed that the distribution for each
+class with respect to each feature, i.e. `var\_0', `var\_1',etc...,  Gaussian
 and is not very different from each other.  In fact, two classes overlap
-significantly for almost all features and determining any seperability appears
+significantly for almost all features and determining any separability appears
 to be non-trivial.  This led me to believe that mapping the data into a new
 space with PCA may not be useful for the purposes of reducing data
 dimensionality.
@@ -93,7 +93,7 @@ features were able to generalize to the validation set better.
 %  - extract patterns in transaction histories
 % assumes its a time series and assumed there was a particular order
 % 1D CNN and LSTM
-The instructions on the competetion website stated,``...identify which customers
+The instructions on the competition website stated,``...identify which customers
 will make a specific transaction in the future, irrespective of the amount of
 money transacted.'' From these instruction I hypothesized that each feature
 could represent a transaciton from an individual's transaction history and I
@@ -138,7 +138,7 @@ used for validation.
 %PCA
 % - centered data
 PCA was performed using Scikit-lean's decomposition module.  PCA was performed
-on centered and non-centered data which yeilded similar results.  I sought to
+on centered and non-centered data which yielded similar results.  I sought to
 reduce the number of features by keeping those which explain 95\% of the
 variance.  It turns out that 118 features explain about 95\% of the total
 variance which is more features than what I initially expected.   
@@ -151,17 +151,17 @@ variance which is more features than what I initially expected.
 The sklearn xgboost module was used to create the gradient boosting model. The
 model was trained and evaluated on the original training data, with all 200
 features, as well as with the PCA reduced data with 118 features.  Area under
-reciever operation characteristic (AUROC) was used to evaluate how well the
+receiver operation characteristic (AUROC) was used to evaluate how well the
 model was at generalizing to the validation test set.  The non-reduced data, the
-original data yeilded higher AUROC values, at around 0.885, when compared to the
+original data yielded higher AUROC values, at around 0.885, when compared to the
 models trained on PCA transformed data.  Different numbers of features were
-experiemented with for PCA. 
+experimented with for PCA. 
 
 \subsection{Feature Engineering}
 
 % XGBoost with new feat
 % - parameters tuning
-Functions were written to itterate through each row or record and count the
+Functions were written to iterate through each row or record and count the
 number of positive values and the number of negative values.  These two numbers
 were appended to the end of the dataset as two extra features.  Another function
 was written to capture the longest sequence, within each row, of positive
@@ -172,12 +172,12 @@ order of the features have not been randomized.
 \subsection{Parameter Tuning}
 
 Model parameters, which include n\_estimators, max\_depth, and the learning rate
-were choosen with the help of the GridSearchCV.  GridSearchCV exhaustively
-searches through a range of choosen values for each of the model parameters and
+were chosen with the help of the GridSearchCV.  GridSearchCV exhaustively
+searches through a range of chosen values for each of the model parameters and
 helps you choose the best parameter values.  Parameters and their final values
 are as follows: n\_estimators = 1500, max\_depth = 3, and the learning rate =
 0.3. The tree\_method was gpu\_hist and predictor was gpu\_predictor; these
-parameters were not tunned and choosen so that GPU acceleration could be
+parameters were not tunned and chosen so that GPU acceleration could be
 enabled.   
 
 \iffalse
@@ -191,10 +191,10 @@ enabled.
 
 Various visualization kernels on kaggle showed great similarities
 between the two classes with respect to a particular feature.  No one feature
-seemed to show any significant amount of seperability between the two classes
-however, it appeared that some features were slightly more sperable than others.
+seemed to show any significant amount of separability between the two classes
+however, it appeared that some features were slightly more separable than others.
 It was thought that PCA would pick out the features that were slightly more
-seperable and lead to better classification.
+separable and lead to better classification.
 Figure~\ref{fig:pca_explain} shows the relationship between the number of
 principal components and the variance explained by those number of components.
 I had hoped that the majority of the variance, about 95\%, was explained by a
@@ -208,12 +208,12 @@ few components however this was not the case.
 \end{figure}
 
 I experimentally determined if it was worth proceeding with PCA.  Using the
-XGBoost gradiant boosting module I defined a set of consistant hyper parameters,
-which are shown in Table~\ref{tab:xgb_params}for comparision.  I trained the
+XGBoost gradient boosting module I defined a set of consistent hyper parameters,
+which are shown in Table~\ref{tab:xgb_params}for comparison.  I trained the
 model using the training data, 80\% of the full training dataset, and varied the
 amount of components used during training. Predictions were made on the
 validation set, 20\% of the original training dataset, and the AUROC were
-calculated.  Figure~\ref{fig:pca_auc} shows how varrying the number of principal
+calculated.  Figure~\ref{fig:pca_auc} shows how varying the number of principal
 components affects the AUROC score. 
 
 \begin{table}[h!]
@@ -236,7 +236,7 @@ eval\_metric & auc \\ \hline
 \begin{figure}[h!]
     \centering
         \includegraphics[width=.5\textwidth]{pca_auc.png}
-        \caption{AUROC scores have a postive correlation to the number of
+        \caption{AUROC scores have a positive correlation to the number of
 principal components}
         \label{fig:pca_auc}
 \end{figure}
@@ -252,7 +252,7 @@ class.
     \centering
     \begin{subfigure}[]{.4\textwidth}
         \includegraphics[width=\textwidth]{pos_dist.png}
-        \caption{Distribution of postitive numbers by class}
+        \caption{Distribution of positive numbers by class}
         \label{fig:pos_dist}
     \end{subfigure}
     \begin{subfigure}[]{.4\textwidth}
@@ -260,29 +260,29 @@ class.
         \caption{Distribution of negative numbers by class}
         \label{fig:neg_dist}
     \end{subfigure}
-    \caption{Frequency distributions for postive and negative values colored by
+    \caption{Frequency distributions for positive and negative values colored by
 class}
     \label{fig:count_dist}
 \end{figure}
 
 Figure~\ref{fig:count_dist} indicates that there are some differences
 between class 0 and class 1 when looking at the total number of positive feature
-values and the total number of negative feature values. The seperation seen in
+values and the total number of negative feature values. The separation seen in
 Figures~\ref{fig:pos_dist} and~\ref{fig:neg_dist} display more difference and
 less overlap than any of the 200 original features.  As a result, I
-hypothesised that adding these features to the model may help with training. 
+hypothesized that adding these features to the model may help with training. 
 
 Distributions of the longest positive and negative sequences with respect to
 each class are shown in Figure~\ref{fig:count_dist}.  These two features were
-constructed under the assumption that the features corrispond to some type of
-sequence data.  Again, I was trying to find features which show more speration
+constructed under the assumption that the features correspond to some type of
+sequence data.  Again, I was trying to find features which show more separation
 between the two classes than the original 200 features.
 
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[]{.4\textwidth}
         \includegraphics[width=\textwidth]{long_pos_dist.png}
-        \caption{Distribution of postitive numbers by class}
+        \caption{Distribution of positive numbers by class}
         \label{fig:pos_dist}
     \end{subfigure}
     \begin{subfigure}[]{.4\textwidth}
@@ -290,18 +290,18 @@ between the two classes than the original 200 features.
         \caption{Distribution of negative numbers by class}
         \label{fig:neg_dist}
     \end{subfigure}
-    \caption{Frequency distributions for longest postive sequence and longest
+    \caption{Frequency distributions for longest positive sequence and longest
 negative sequence values colored by class}
     \label{fig:count_dist}
 \end{figure}
 
-The resulting distributions for the longest positive and negative squences are
+The resulting distributions for the longest positive and negative sequences are
 different than the total count of positive and negative numbers as well as the
-rest of the 200 features There are slight differences with resepct to each class
+rest of the 200 features There are slight differences with respect to each class
 which may help to improve the models.  Using this new feature may come with some
 risk because it is likely that the feature order may have been randomized before
 the datasets were released.  If that was the case, the longest positive and
-negative sequences will be different and possibly irrelavant.
+negative sequences will be different and possibly irrelevant.
 
 The hyper parameters for the XGBoost classifier were tuned using GridSearchCV
 from sklearn.  GridSearchCV does not support GPU tree\_methods and so the search
@@ -309,13 +309,13 @@ was done on the CPU tree methods.  Final models were constructed using the GPU
 versions of the hyper parameters for speed gains.  Finalize parameters are shown
 in Table~\ref{tab:xgb_params}.  Some extra tuning of hyper parameters were done
 to account for possible differences in the tree\_methods between the CPU and GPU
-implementation.  The best hyper parameters were choosen based on AUROC scores
-for the validation set.  It is likely that overfitting could have occured and
+implementation.  The best hyper parameters were chosen based on AUROC scores
+for the validation set.  It is likely that overfitting could have occurred and
 that good performance on the validation set does not indicate a good ability for
 the model to generalize to the test set.  In order to mitigate some overfitting
 issues I used cross validation.  Overall, the AUROC scores from validation were
 similar, out to four decimal places, to the resulting public score.  This made
-me confident that any overfitting that may have occured was not too extreme.
+me confident that any overfitting that may have occurred was not too extreme.
 
 \begin{table}[h!]
 \centering
@@ -335,7 +335,7 @@ eval\_metric & auc \\ \hline
 \end{table}
 
 When the hyper parameters were finalized, the XGBoost classifier was trained on
-the full training dataset using the hyperparameters from
+the full training dataset using the hyper parameters from
 Table~\ref{tab:xgb_params}.  The classifier was then used to make predictions on
 the test set.  The predictions were uploaded and the public score is shown below
 in Table~\ref{tab:final}
@@ -356,13 +356,13 @@ XGBoost w/ feat engineering & 0.899 \\ \hline
 \label{tab:final}
 \end{table}
 
-In addtion to XGBoost, PCA, and some feature engineering, I implemented a 1D CNN
-and an LSTM as an exploritory experiement.  The initial submissions for both the
+In addition to XGBoost, PCA, and some feature engineering, I implemented a 1D CNN
+and an LSTM as an exploratory experiment.  The initial submissions for both the
 1D CNN and LSTM resulted in the scores seen in in Table~\ref{tab:final}.  In an
-attempt to acheive higher scores for both models I ran then through more epochs.
+attempt to achieve higher scores for both models I ran then through more epochs.
 While their performance on the validation sets increased considerably with more
 epochs, I suspected overfitting to be an issue.  The performance on the public
-leader board dropped and was lower than the previouse models which were
+leader board dropped and was lower than the previous models which were
 constructed on less epochs.  These models were not pursued any further.  Feature
 engineering along with the XGBoost classifier for which hyper parameters were
 tuned gave me the best public score.

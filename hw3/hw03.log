@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  14 MAR 2019 20:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6980) (preloaded format=pdflatex 2019.3.11)  14 MAR 2019 20:57
 entering extended mode
 **./hw03.tex
 (hw03.tex
@@ -645,12 +645,13 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 59.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/home/lambert/.miktex/texmfs/data/pdftex/config/pdftex.map}] [2]
-<pca_explain.png, id=15, 829.0975pt x 550.055pt>
+{/home/lambert/.miktex/texmfs/data/pdftex/config/pdftex.map}]
+<pca_explain.png, id=12, 829.0975pt x 550.055pt>
 File: pca_explain.png Graphic file (type png)
 <use pca_explain.png>
 Package pdftex.def Info: pca_explain.png  used on input line 205.
 (pdftex.def)             Requested size: 234.87749pt x 155.81888pt.
+ [2]
 <pca_auc.png, id=16, 833.1125pt x 540.0175pt>
 File: pca_auc.png Graphic file (type png)
 <use pca_auc.png>
@@ -706,7 +707,7 @@ fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.p
 fb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.p
 fb>
-Output written on hw03.pdf (6 pages, 426551 bytes).
+Output written on hw03.pdf (6 pages, 426560 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
