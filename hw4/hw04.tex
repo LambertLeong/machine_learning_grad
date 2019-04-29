@@ -1,0 +1,87 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlength{\textwidth}{6.5in}     
+\setlength{\oddsidemargin}{0in}  
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.5in} 
+\setlength{\topmargin}{0in}   
+\setlength{\headheight}{14pt} 
+\setlength{\headsep}{10pt}   
+%\setlength{\footskip}{0in}
+
+%------------------------------------------------
+\newcommand{\homework}[2]{
+\setcounter{section}{#1}
+\section*{ICS635 Homework {\thesection}: {#2} }
+{\markboth{#2}{#2}}
+}
+%------------------------------------------------
+
+
+\begin{document}
+
+% Enter the Homework number and title as arguments to
+% homework
+\homework{4}{by Lambert Leong}
+
+\textbf{Problem 1}
+%https://www.quora.com/What-are-the-differences-between-maximum-likelihood-and-cross-entropy-as-a-loss-function
+
+%\noindent
+\textbf{Problem 2}
+\begin{enumerate}[labelindent=0pt]
+\item
+Sample size is large enough to do a 60\%, 20\%, 20\% split for train,
+validation, and test.
+\item
+The exact architecture or neural net model is ambiguous.
+\item
+The loss function being optimized is not clear.
+\item
+The exact hyper parameters optimized are not stated.
+\item
+The evaluation method for the competition is unclear(i.e. are they using AUROC,
+AUPRC, or etc).
+\item
+It seems as though the test set was not used.  The individual does not report
+how the tuned model did on the test set. 
+\item
+It is unclear if the individual is first place on the leader board of if they
+acutally won the whole competition.
+\item
+The final optimized parameters are not reported which makes it difficult to
+reproduce the work.
+\item
+It is not clear what data set was used to train the final model that was
+submitted.  Did the individual use just the model trained on the 80\% training
+data or all the training data? 
+\item
+The final test set, mentioned in the last line, is ambiguous because it could be
+referring to the witheld dataset that is used to pick the winners or the final
+test set(10\% of the training) that the individual set aside when he did his data split.
+\end{enumerate}
+
+\textbf{Problem 3}
+%http://cross-entropy.net/ML310/homework03_answers.txt
+\begin{enumerate}[labelindent=0pt]
+\item 
+\item 
+\item 
+\end{enumerate}
+
+\textbf{Problem 4}
+\begin{enumerate}[labelindent=0pt]
+\item 
+\item 
+\item 
+\end{enumerate}
+
+
+\noindent\end{document}
+
