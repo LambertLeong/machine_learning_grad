@@ -312,7 +312,7 @@ in Table~\ref{tab:xgb_params}.  Some extra tuning of hyper parameters were done
 to account for possible differences in the tree\_methods between the CPU and GPU
 implementation.  The best hyper parameters were chosen based on AUROC scores
 for the validation set.  It is likely that overfitting could have occurred and
-that good performance on the validation set does not indicate a good ability for
+that good performance on the validation set does not soley indicate a good ability for
 the model to generalize to the test set.  In order to mitigate some overfitting
 issues I used cross validation.  Overall, the AUROC scores from validation were
 similar, out to four decimal places, to the resulting public score.  This made
@@ -360,7 +360,7 @@ XGBoost w/ feat engineering & 0.899 \\ \hline
 In addition to XGBoost, PCA, and some feature engineering, I implemented a 1D CNN
 and an LSTM as an exploratory experiment.  The initial submissions for both the
 1D CNN and LSTM resulted in the scores seen in in Table~\ref{tab:final}.  In an
-attempt to achieve higher scores for both models I ran then through more epochs.
+attempt to achieve higher scores for both models I ran them through more epochs.
 While their performance on the validation sets increased considerably with more
 epochs, I suspected overfitting to be an issue.  The performance on the public
 leader board dropped and was lower than the previous models which were
