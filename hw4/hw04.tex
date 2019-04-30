@@ -32,6 +32,14 @@
 
 \textbf{Problem 1}
 %https://www.quora.com/What-are-the-differences-between-maximum-likelihood-and-cross-entropy-as-a-loss-function
+%https://stats.stackexchange.com/questions/364216/the-relationship-between-maximizing-the-likelihood-and-minimizing-the-cross-entro
+%http://www.awebb.info/blog/cross_entropy
+\\
+\\Maximizing the conditional likelihood of the data.
+ \begin{align*}
+	\mathcal{L}(\mathcal{D})=p_{\theta}(y_{n}|x_{n})& = \prod_{n}^{N}(\hat{y})^y(1-\hat{y})^{1-y} \\
+ 	&= \sum_{n}^{N}log(\hat{y})+(1-y)log(1-\hat{y})
+ \end{align*}
 
 %\noindent
 \textbf{Problem 2}
