@@ -34,11 +34,13 @@
 %https://www.quora.com/What-are-the-differences-between-maximum-likelihood-and-cross-entropy-as-a-loss-function
 %https://stats.stackexchange.com/questions/364216/the-relationship-between-maximizing-the-likelihood-and-minimizing-the-cross-entro
 %http://www.awebb.info/blog/cross_entropy
+%https://medium.com/konvergen/cross-entropy-and-maximum-likelihood-estimation-58942b52517a
 \\
 \\Maximizing the conditional likelihood of the data.
  \begin{align*}
-	\mathcal{L}(\mathcal{D})=p_{\theta}(y_{n}|x_{n})& = \prod_{n}^{N}(\hat{y})^y(1-\hat{y})^{1-y} \\
- 	&= \sum_{n}^{N}(\hat{y})log(y)+(1-y)log(1-\hat{y})
+	\mathcal{L}(\mathcal{D})=p_{\theta}(y_{n}|x_{n})& =
+\prod_{n}^{N}(\hat{y_{n}})^{y_{n}}(1-\hat{y_{n}})^{1-y_{n}} \\
+ 	&= \sum_{n}^{N}(\hat{y_{n}})log(y_{n})+(1-y_{n})log(1-\hat{y_{n}})
  \end{align*}
 
 %\noindent
@@ -79,8 +81,20 @@ test set(10\% of the training) that the individual set aside when he did his dat
 %http://cross-entropy.net/ML310/homework03_answers.txt
 \begin{enumerate}[labelindent=0pt]
 \item 
+Centering data affects the principal components if it is calculated via singular
+value decomposition.  However, if one is to compute the principal components by
+first computing the covariance matrix then centering should not affect
+prinicipal components.
+
+\item 
+Scaling data can help prevent one principal component explaining the majority of
+the variance.  If the data is not scaled properly, one feature could dominate
+and might influence the axis of maximal variance. 
+
 \item 
 \item 
+If the network is free of any nolinearities then it is convex.  
+It will be e	uivalent to plotting thd data in principal component space.
 \end{enumerate}
 
 \textbf{Problem 4}
