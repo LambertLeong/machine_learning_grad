@@ -89,26 +89,30 @@ prinicipal components.
 \item 
 Scaling data can help prevent one principal component explaining the majority of
 the variance.  If the data is not scaled properly, one feature could dominate
-and might influence the axis of maximal variance. 
+and influence the axis of maximal variance. 
 
 \item 
+%https://stats.stackexchange.com/questions/359570/equal-covariance-in-linear-discriminant-analysis
+Classes will be indistinguishable if the two classes are centered around the
+same space with respect to the two dimensions or principal components they are
+plotted in.  Interchagning one principal component for a third or plotting in a
+higher dimension will likely show some sepearability.
+
 \item 
 If the network is free of any nolinearities then it is convex.  
-It will be e	uivalent to plotting thd data in principal component space.
+It will be equivalent to plotting the data in principal component space.
 \end{enumerate}
 
 \textbf{Problem 4}
 \begin{enumerate}[labelindent=0pt]
 \item 
-If you have data points on previous days, it will be better.  If you have a
-proper length parameter - determines similarity between two points, higher means
-points are more similar.  and sigma, explains variance, higher means bigger
-confidence area of the function at a given point
+If you have data points on previous days to construct a reasonable posterior, it will be better. 
+% If you have a proper length parameter - determines similarity between two points, higher means points are more similar.  and sigma, explains variance, higher means bigger confidence area of the function at a given point
 \item 
-Trusting the oracle can change prediction. if resampled it can narrow the range
-of your prediction
+Trusting the oracle can change prediction. If resampled it can narrow the range
+of your prediction; so yes it will affect your models prediction.
 \item 
-MP???
+MAP
 \end{enumerate}
 
 
