@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlength{\textwidth}{6.5in}     
+\setlength{\oddsidemargin}{0in}  
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.5in} 
+\setlength{\topmargin}{0in}   
+\setlength{\headheight}{14pt} 
+\setlength{\headsep}{10pt}   
+%\setlength{\footskip}{0in}
+
+%------------------------------------------------
+\newcommand{\homework}[2]{
+\setcounter{section}{#1}
+\section*{ICS635 Homework {\thesection}: {#2} }
+{\markboth{#2}{#2}}
+}
+%------------------------------------------------
+
+
+\begin{document}
+
+% Enter the Homework number and title as arguments to
+% homework
+\homework{1}{by Lambert Leong}
+
+\textbf{Problem 1}
+\begin{enumerate}[labelindent=0pt]
+\item 
+	\begin{align*}
+	E[aX+b] & = \int_{-\infty}^{\infty}(aX+b)f(x)dx \\
+	& = \int_{-\infty}^{\infty}aXf(x)dx+ \int_{-\infty}^{\infty}bf(x)dx \\
+	& = a\int_{-\infty}^{\infty} Xf(x)dx+b \int_{-\infty}^{\infty}f(x)dx \\
+	& = aE[X]+b
+	\end{align*}
+\item 
+	\begin{align*}
+	var(cX) & = E[(cX - c\mu)^2] \\
+	& = E[cX]^2 - (E[cX])^2 \\
+	& = c^2E[X^2]-c^2(E[X])^2 \\
+	& = c^2(E[X^2]-(E[X])^2) \\
+	& = c^2(E[X]-(E[X])^2) \\
+	& = c^2var(X)
+	\end{align*}
+\item 
+	\begin{align*}
+	var(x) & = \int_{-\infty}^{\infty}(x-\mu)^2f(x)dx \\
+	& = \int_{-\infty}^{\infty}(x^2+\mu^2-2x\mu)f(x)dx \\
+	& = \int_{-\infty}^{\infty}x^2f(x)f(x)+\mu^2 \int_{-\infty}^{\infty}f(x)dx-2\mu \int_{-\infty}^{\infty}xf(x)dx \\
+	& = E[X^2]+\mu^2-2\mu^2 \\
+	& = E[X^2]-\mu^2 \\
+	& = E[X^2]-E[X]^2
+	\end{align*}
+\end{enumerate}
+
+\noindent
+\textbf{Problem 2}
+\begin{enumerate}[labelindent=0pt]
+\item 
+	\begin{align*}
+	E[X]  & = \int_{a}^{b}x(\tfrac{1}{b-a})dx \\
+	      & = \tfrac{b+a}{2}
+	\end{align*}
+\item
+	\begin{align*}
+	var(X) & = E[X^2]-E^2[X] \\
+	%& = E(x^2) - \mu^2
+	& = \int_{a}^{b}\tfrac{x^2}{b-a}dx-(\tfrac{b-a}{2})^2 \\
+	& = \frac{b^2+ba+a^2}{3} - (\tfrac{b+a}{2})^2 \\
+	& = \frac{b^2-2ba+a^2}{12}
+	\end{align*}
+\end{enumerate}
+
+\textbf{Problem 3}
+\begin{enumerate}[labelindent=0pt]
+\item 
+\item
+\item
+\end{enumerate}
+
+\textbf{Problem 4}
+\begin{enumerate}[labelindent=0pt]
+\item 
+	\begin{align*}
+	P(D|T^+) & =\tfrac{P(T^+|D)P(D)}{P(T^+)}
+	\end{align*}
+\item 
+	\begin{align*}
+	P(D|T^+) & =\tfrac{P(T^+|D)P(D)}{P(T^+)} \\
+	& =\tfrac{P(T^+|D)P(D)}{[P(T^+|D)\times P(D)]+[P(T^+|not D)\times
+P(not D)]} \\
+	& = \tfrac{SP(D)}{[SP(D)]+[(1-Q)(1-P(D))]} \\
+	& = \tfrac{.99(.001)}{[.99(.001)]+[(1-.99)(1-.001)]} \\
+	& = .0902
+	\end{align*}
+\item 
+	\begin{align*}
+	P(D|T^+) & =\tfrac{P(T^+|D)P(D)}{P(T^+)} \\
+	& =\tfrac{P(T^+|D)P(D)}{[P(T^+|D)\times P(D)]+[P(T^+|not D)\times
+P(not D)]} \\
+	& = \tfrac{SP(D)}{[SP(D)]+[(1-Q)(1-P(D))]} \\
+	& = \tfrac{.99(.001)}{[.99(.001)]+[(1-.90)(1-.001)]} \\
+	& = .0098
+	\end{align*}
+\end{enumerate}
+
+\textbf{Problem 5}
+\begin{enumerate}[labelindent=0pt]
+\item 
+	%\begin{align*}
+	$\nabla f(x) = \tfrac{1}{2}[\nabla x^TAx]+b^T \\$
+if A symmetric \\
+	$\vec{\nabla} (x^TAx)=Ax+x^TA=2Ax \\$
+Then \\
+	$= \tfrac{1}{2}(2Ax)+b^Tx \\
+	= Ax+b^T$
+	%\end{align*}
+\item 
+chain rule?
+% https://stats.stackexchange.com/questions/151066/gradient-of-loss-function-for-non-linear-prediction-functions
+\item
+\item
+\end{enumerate}
+
+\textbf{Problem 6}
+\begin{enumerate}[labelindent=0pt]
+\item
+	\begin{enumerate}[labelindent=0pt]
+	\item
+	A small $\lambda$ would prevent overfiting of the on the training set
+and lead to an increase in error.
+	\item
+	The model may thus be able to generalize well to the validation set and
+increase error.
+	\item
+	w will increase
+	\item
+	The number of non-zero elemnts in w would also increase
+	\end{enumerate}
+\item
+	\begin{enumerate}[labelindent=0pt]
+	\item
+	A big $\lambda$ could lead to over fitting on the training set which
+would minimize error
+	\item 
+	Overfitting on the training set would lead to an increased error during
+validation
+	\item
+	w or the bias will be low as well
+	\item
+	There will be few non-zero elements of w.
+	\end{enumerate}
+\item
+	\begin{enumerate}[labelindent=0pt]
+	\item
+	An L2 regularization would increase the number of non-zero elements.	
+	\item
+	\item
+	\end{enumerate}
+\end{enumerate}
+\textbf{Problem 7}
+\begin{enumerate}[labelindent=0pt]
+\item 
+The outcomes of the XOR functions are not linearly sperable.  Therefore, no
+parameters exists that can lead to a zero loss for a single neuron.
+\item
+h1 = np.heaviside((1*x1+1*x2+(-0.5)),.5)\\
+h2 = np.heaviside(((-1)*x1+(-1)*x2+(1.5)),.5)\\
+y = np.heaviside((1*(h1)+(1)*(h2)+(-1.5)),.5)
+
+\end{enumerate}
+
+\textbf{Problem 8}
+\begin{enumerate}[labelindent=0pt]
+\item 
+\item
+\item
+\end{enumerate}
+
+\noindent\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.19)  23 JAN 2019 22:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.19)  27 JAN 2019 21:51
 entering extended mode
 **./hw01.tex
 (hw01.tex
@@ -216,41 +216,76 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
 (/home/lambert/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/home/lambert/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/home/lambert/.miktex/texmfs/data/pdftex/config/pdftex.map}] [2] [3] (hw01.aux
-) ) 
+{/home/lambert/.miktex/texmfs/data/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+[3] [4]
+<cv_plot.png, id=24, 462.528pt x 346.896pt>
+File: cv_plot.png Graphic file (type png)
+<use cv_plot.png>
+Package pdftex.def Info: cv_plot.png  used on input line 275.
+(pdftex.def)             Requested size: 140.92792pt x 105.69461pt.
+
+Overfull \hbox (4.28938pt too wide) in paragraph at lines 269--282
+[]\OT1/cmr/m/n/10.95 We used a K-nearest neighbors (Knn) model and experiemente
+d with different hyperparameters
+ []
+
+
+Overfull \hbox (6.08394pt too wide) in paragraph at lines 269--282
+\OT1/cmr/m/n/10.95 such as the algorithm used to compute the nearest neighbors,
+ weight function used in prediction,
+ []
+
+[5 <./cv_plot.png>] (hw01.aux) ) 
 Here is how much of TeX's memory you used:
- 2795 strings out of 495222
- 38541 string characters out of 3181559
- 96991 words of memory out of 3000000
- 6070 multiletter control sequences out of 15000+200000
+ 2802 strings out of 495222
+ 38634 string characters out of 3181559
+ 98999 words of memory out of 3000000
+ 6075 multiletter control sequences out of 15000+200000
  9201 words of font info for 35 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 41i,9n,26p,273b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
-</home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.
-pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12
-.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr
-6.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8
-.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></home/lambert/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
-8.pfb>
-Output written on hw01.pdf (3 pages, 112145 bytes).
+ 41i,10n,26p,273b,352s stack positions out of 5000i,500n,10000p,200000b,50000s
+</home/lambert/.miktex/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb></home/lambert/.miktex/texmfs/install/fonts/ty
+pe1/public/amsfonts/cm/cmbx12.pfb></home/lambert/.miktex/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb></home/lambert/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></home/lambert/.miktex/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></home/lambert/.miktex/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></home/lambert/.miktex/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmr6.pfb></home/lambert/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></home/lambert/.miktex/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></home/lambert/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on hw01.pdf (5 pages, 145579 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
